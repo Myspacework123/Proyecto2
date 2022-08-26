@@ -1,4 +1,4 @@
-<?php include("template/cabecera.php");?>
+<?php include("Vista/template/cabecera.php");?>
 
 <div class="container mb-5 mt-5">
     <div class="offcanvas offcanvas-start fade" id="demo">
@@ -58,4 +58,4 @@
     </div>
 </div>
 
-<?php include("template/pie.php");?>
+<?php include("Vista/template/pie.php");?>

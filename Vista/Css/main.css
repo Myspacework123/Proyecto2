@@ -2,3 +2,35 @@ body{
 
     background-image: radial-gradient(circle at 50% -20.71%, #dff0db 0, #dbf0dd 6.25%, #d8f1e0 12.5%, #d5f1e3 18.75%, #d3f2e6 25%, #d1f2e9 31.25%, #cff2ec 37.5%, #cef2ef 43.75%, #cdf2f2 50%, #cdf2f5 56.25%, #cdf1f8 62.5%, #cef1fa 68.75%, #cff0fc 75%, #d1f0fe 81.25%, #d3efff 87.5%, #d6eeff 93.75%, #d9edff 100%);
 }
+
+
+body::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+
+}
+ body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #F5F5F5;
+    border-radius: 10px;
+
+} 
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-image: -webkit-linear-gradient(330deg, #84fab0 0%, #8fd3f4 100%);
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+
+body::-webkit-scrollbar-thumb:hover {
+    background-image: -webkit-linear-gradient(330deg, #84fab0 0%, #8fd3f4 100%);
+    background-image: linear-gradient(120deg, #53ff92 0%, #8fd3f4 100%);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+body::-webkit-scrollbar-thumb:active {
+    background-image: -webkit-linear-gradient(330deg, #84fab0 0%, #8fd3f4 100%);
+    background-image: linear-gradient(120deg, #53ff92 0%, #8fd3f4 100%);
+} 

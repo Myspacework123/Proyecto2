@@ -12,11 +12,11 @@
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
-    <link rel='stylesheet' type='text/css' media='screen' href='vista/Css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='Vista/Css/main.css'>
     <script src='Vista/Js/main.js'></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent mb-5">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"><i class='fas fa-user-alt'></i> Mi proyecto</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,8 +24,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-link" href="#">Inicio</a>
-                        <a class="nav-link" href="#">Registrarse</a>
+                        <a class="nav-link" href="index.php">Inicio</a>
+                        <a class="nav-link" href="registro.php">Registrarse</a>
                         <a class="nav-link" href="#">Ingresar</a>
                     </div>
                 </div>

@@ -8,13 +8,17 @@ class MdlUsuarios {
         $mensaje = "";
 
         try {
-            $objRespuesta = conexion::conectar()->prepare("INSERT INTO usuario (nombres, apellidos, direccion, email, contraseña, genero) values(:nombres,:apellidos	,:direccion,:email,:contraseña,:genero)");
+            $objRespuesta = conexion::conectar()->prepare("Insert into usuario (nombres, apellidos, direccion, email, contraseña, genero, fechaRegistro) values(:nombres,:apellidos,:direccion,:email,:contra,:genero,:fechaRegistro)");
+
             $objRespuesta->bindParam(":nombres",$nombres);
             $objRespuesta->bindParam(":apellidos",$apellidos);
             $objRespuesta->bindParam(":direccion",$direccion);
-            $objRespuesta->bindParam(":email",$genero);
-            $objRespuesta->bindParam(":contraseña",$email);
-            $objRespuesta->bindParam(":genero",$contraseña);
+            $objRespuesta->bindParam(":email",$email);
+            $objRespuesta->bindParam(":contra",$contraseña);
+            $objRespuesta->bindParam(":genero",$genero);
+            $objRespuesta->bindParam(":fechaRegistro",date('y-m-d'));
+
+
 
             if ($objRespuesta->execute()){
                 $mensaje = "Se ha guardado correctamente";
