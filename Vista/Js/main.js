@@ -1,6 +1,10 @@
 $(document).ready(function(){
 
+    console.log('jquery is working!');
+    mostrarUsuarios();
+    $('#task-result').hide();
 
+// Mostrar contraseña
 
     $("#btnMostrarContraseña").click(function (){
         var input = document.getElementById("txtContraseña");
@@ -14,6 +18,7 @@ $(document).ready(function(){
     })
 
 
+// Registro de Usuarios 
 
     $("#btnRegistro").click(function (){
 
@@ -62,6 +67,7 @@ $(document).ready(function(){
                 }).done(function(respuesta) {
                     debugger;
                     alert(respuesta);
+
                 })
             }
           })
@@ -70,18 +76,131 @@ $(document).ready(function(){
         
     })
 
+// Listado de usuarios
+    function mostrarUsuarios() {
 
+        $.ajax({          
+            url: "Control/listaControl.php",
+            type: "GET",
+            dataType: "json"
 
+        }).done(function(respuesta) {
+            const q = JSON.stringify(respuesta);
+            const tasks = JSON.parse(q);
+            
+            let template = '';
+            
+            tasks.forEach(task => {
+                template += `
+                        <tr taskId="${task.id}">
+                            <td>${task.idUsuario}</td>
+                            <td>${task.nombres}</td>
+                            <td>${task.apellidos}</td>
+                            <td>${task.direccion}</td>
+                            <td>${task.email}</td>
+                            <td>${task.contraseña}</td>
+                            <td>${task.genero}</td>
+                            <td>${task.fechaRegistro}</td>
+                            <td>${task.idRol}</td>
+                            <td>
+                            <button class="btn btn-warning text-light ">
+                            <i class="fa fa-eraser"></i> 
+                            </button>
+                            </td>
+                        </tr>
+                      `
+              });
+              $('#usuarios').html(template);
+        })
+      }
 
+    //busquedas
 
+    $("#btnBuscar").click(function(){
+        alert("dxa");
+        var busqueda = $("#txtBusqueda").val();
+        var objDato = new FormData();
+        objDato.append("busqueda",busqueda); 
 
-	
-    // $(document).ready(function () {
-    //     //CheckBox mostrar contraseña
-    //     $('#ShowPassword').click(function () {
-    //         $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-    //     });
-    // });
+        $.ajax({
+                    url: "Control/busquedaControl.php",
+                    type: "post",
+                    dataType: "json",
+                    data: objDato,
+                    cache: false,
+                    contentType: false,
+                    processData: false 
 
+        }).done(function(respuesta) {
+            const q = JSON.stringify(respuesta);
+            const tasks = JSON.parse(q);
+            
+            let template = '';
+            tasks.forEach(task => {
+                template += `
+                        <tr taskId="${task.id}">
+                            <td>${task.idUsuario}</td>
+                            <td>${task.nombres}</td>
+                            <td>${task.apellidos}</td>
+                            <td>${task.direccion}</td>
+                            <td>${task.email}</td>
+                            <td>${task.contraseña}</td>
+                            <td>${task.genero}</td>
+                            <td>${task.fechaRegistro}</td>
+                            <td>${task.idRol}</td>
+                            <td>
+                            <button class="btn btn-warning text-light ">
+                            <i class="fa fa-eraser"></i> 
+                            </button>
+                            </td>
+                        </tr>
+                      `
+              });
+              $('#usuarios').html(template);
+        })
+    })
+
+    // $('#search').keyup(function() {
+    //     if($('#search').val()) {
+    //       let search = $('#search').val();
+    //       $.ajax({
+    //         url: 'task-search.php',
+    //         data: {search},
+    //         type: 'POST',
+    //         success: function (response) {
+    //           if(!response.error) {
+    //             let tasks = JSON.parse(response);
+    //             let template = '';
+    //             tasks.forEach(task => {
+    //               template += `
+    //                      <li><a href="#" class="task-item">${task.name}</a></li>
+    //                     ` 
+    //             });
+    //             $('#task-result').show();
+    //             $('#container').html(template);
+    //           }
+    //         } 
+    //       })
+    //     }
+    //   });
     
+    //   $('#task-form').submit(e => {
+    //     e.preventDefault();
+    //     const postData = {
+    //       name: $('#name').val(),
+    //       description: $('#description').val(),
+    //       id: $('#taskId').val()
+    //     };
+    //     const url = edit === false ? 'task-add.php' : 'task-edit.php';
+    //     console.log(postData, url);
+    //     $.post(url, postData, (response) => {
+    //       console.log(response);
+    //       $('#task-form').trigger('reset');
+    //       fetchTasks();
+    //     });
+    //   });
+    
+
+
+
 }) 

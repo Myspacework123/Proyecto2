@@ -15,6 +15,7 @@ class ctrUsuarios {
         $objRespuesta = MdlUsuarios::mdlRegistrarUsuarios($this->nombre,$this->apellido,$this->direccion,$this->genero,$this->email,$this->contraseña);
         echo json_encode($objRespuesta);
     }
+
 }
 
 if (isset($_POST["nombres"],$_POST["apellidos"],$_POST["direccion"],$_POST["genero"],$_POST["email"],$_POST["contraseña"])) {
